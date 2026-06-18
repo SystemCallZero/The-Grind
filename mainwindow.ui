@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>The Grind</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+/* ===== ОСНОВНОЙ ФОН ===== */
+QWidget {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 10pt;
+}
+QMainWindow {
+    background-color: #1e1e2e;
+}
+
+/* ===== КОМБОБОКС ===== */
+QComboBox {
+    background-color: #2a2a3e;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+    padding: 6px 10px;
+    color: #cdd6f4;
+}
+QComboBox:hover { border-color: #89b4fa; }
+QComboBox:focus { border-color: #89b4fa; outline: none; }
+QComboBox::drop-down { border: none; width: 20px; }
+QComboBox::down-arrow {
+    image: none;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #89b4fa;
+    margin-right: 4px;
+}
+QComboBox QAbstractItemView {
+    background-color: #2a2a3e;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+    selection-background-color: #585b70;
+    padding: 4px;
+}
+
+/* ===== ВСЕ КНОПКИ (общий фон) ===== */
+QPushButton {
+    background-color: #313244;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: #cdd6f4;
+    font-weight: 500;
+}
+QPushButton:hover { background-color: #45475a; }
+QPushButton:pressed { background-color: #585b70; }
+QPushButton:disabled { background-color: #3a3a4a; color: #6a6a7a; }
+
+/* ===== СПЕЦИАЛЬНЫЕ КНОПКИ ПО ID ===== */
+QPushButton#addDayBtn,
+QPushButton#addExBtn {
+    background-color: #89b4fa;
+    color: #1e1e2e;
+    font-weight: bold;
+}
+QPushButton#addDayBtn:hover,
+QPushButton#addExBtn:hover { background-color: #b4cdfa; }
+QPushButton#addDayBtn:pressed,
+QPushButton#addExBtn:pressed { background-color: #6c8ed4; }
+
+QPushButton#removeDayBtn,
+QPushButton#removeExBtn {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+}
+QPushButton#removeDayBtn:hover,
+QPushButton#removeExBtn:hover { background-color: #f5a0b9; }
+QPushButton#removeDayBtn:pressed,
+QPushButton#removeExBtn:pressed { background-color: #d97a94; }
+
+QPushButton#renameDayBtn,
+QPushButton#renameExBtn {
+    background-color: #a6e3a1;
+    color: #1e1e2e;
+}
+QPushButton#renameDayBtn:hover,
+QPushButton#renameExBtn:hover { background-color: #b8f0b4; }
+QPushButton#renameDayBtn:pressed,
+QPushButton#renameExBtn:pressed { background-color: #8acf85; }
+
+/* ===== КНОПКИ УПРАВЛЕНИЯ ОКНОМ ===== */
+QPushButton#closeBtn {
+    background-color: transparent;
+    color: #cdd6f4;
+    font-size: 14pt;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+QPushButton#closeBtn:hover {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+}
+QPushButton#minimizeBtn, QPushButton#maximizeBtn {
+    background-color: transparent;
+    color: #cdd6f4;
+    font-size: 14pt;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+QPushButton#minimizeBtn:hover, QPushButton#maximizeBtn:hover {
+    background-color: #45475a;
+}
+
+/* ===== КНОПКИ УПРАЖНЕНИЙ (по классу) ===== */
+QPushButton[class=&quot;exercise&quot;] {
+    background-color: #89b4fa;
+    color: #1e1e2e;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 11pt;
+}
+QPushButton[class=&quot;exercise&quot;]:hover {
+    background-color: #b4cdfa;
+}
+QPushButton[class=&quot;exercise&quot;]:pressed {
+    background-color: #6c8ed4;
+}
+QPushButton[class=&quot;exercise&quot;]:disabled {
+    background-color: #a6e3a1;
+    color: #1e1e2e;
+}
+
+/* ===== ПРОГРЕСС-БАР ===== */
+QProgressBar {
+    background-color: #2a2a3e;
+    border: none;
+    border-radius: 8px;
+    height: 20px;
+    text-align: center;
+    color: #cdd6f4;
+    font-weight: 600;
+}
+QProgressBar::chunk {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                stop:0 #89b4fa,
+                                stop:0.5 #6c5ce7,
+                                stop:1 #a6e3a1);
+    border-radius: 8px;
+}
+
+/* ===== МЕТКИ ===== */
+QLabel {
+    color: #cdd6f4;
+}
+QLabel#levelLabel {
+    font-size: 16pt;
+    font-weight: bold;
+    color: #a6e3a1;
+    background-color: #2a2a3e;
+    border-radius: 8px;
+    padding: 4px 12px;
+    min-width: 40px;
+    text-align: center;
+}
+QLabel#titleLabel {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #cdd6f4;
+}
+
+/* ===== СТАТУС-БАР ===== */
+QStatusBar {
+    background-color: #181825;
+    color: #a6adc8;
+    border-top: 1px solid #313244;
+}
+
+/* ===== SCROLL AREA ===== */
+QScrollArea {
+    background-color: transparent;
+    border: none;
+}
+QScrollBar:vertical {
+    background: #2a2a3e;
+    width: 12px;
+    border-radius: 6px;
+}
+QScrollBar::handle:vertical {
+    background: #45475a;
+    border-radius: 6px;
+    min-height: 20px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #585b70;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QWidget" name="titleBar" native="true">
+      <layout class="QHBoxLayout" name="titleBarLayout">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <property name="leftMargin">
+        <number>8</number>
+       </property>
+       <property name="topMargin">
+        <number>4</number>
+       </property>
+       <property name="rightMargin">
+        <number>4</number>
+       </property>
+       <property name="bottomMargin">
+        <number>4</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="iconLabel">
+         <property name="pixmap">
+          <pixmap>icon.ico</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="fixedSize" stdset="0">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="titleLabel">
+         <property name="text">
+          <string>The Grind</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="minimizeBtn">
+         <property name="text">
+          <string>─</string>
+         </property>
+         <property name="fixedSize" stdset="0">
+          <size>
+           <width>30</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="maximizeBtn">
+         <property name="text">
+          <string>☐</string>
+         </property>
+         <property name="fixedSize" stdset="0">
+          <size>
+           <width>30</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="closeBtn">
+         <property name="text">
+          <string>✕</string>
+         </property>
+         <property name="fixedSize" stdset="0">
+          <size>
+           <width>30</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="topLayout">
+      <item>
+       <widget class="QLabel" name="levelLabel">
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QProgressBar" name="progressBar">
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="dayLayout">
+      <item>
+       <widget class="QComboBox" name="dayCombo">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>0</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="addDayBtn">
+        <property name="text">
+         <string>➕ Добавить день</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="removeDayBtn">
+        <property name="text">
+         <string>➖ Удалить</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="renameDayBtn">
+        <property name="text">
+         <string>✏️ Переименовать</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>582</width>
+         <height>86</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2"/>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="exLayout">
+      <item>
+       <widget class="QPushButton" name="addExBtn">
+        <property name="text">
+         <string>➕ Добавить упражнение</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="removeExBtn">
+        <property name="text">
+         <string>➖ Удалить выбранное</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="renameExBtn">
+        <property name="text">
+         <string>✏️ Переименовать</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

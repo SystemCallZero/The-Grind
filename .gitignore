@@ -1,0 +1,118 @@
+# ========== Qt / C++ ==========
+
+# Папки сборки (сгенерированные qmake / CMake)
+build*/
+*-build*/
+build-*
+*-build
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+*.dylib
+
+# Временные файлы moc, ui, rcc
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+*.moc
+*.pdb
+*.ilk
+*.exp
+
+# Файлы настроек Qt Creator
+*.user
+*.user.*
+*.creator.user
+*.creator.user.*
+*.pro.user
+*.pro.user.*
+*.includes
+*.config
+*.creator
+
+# Makefile (генерируется qmake)
+Makefile
+Makefile.*
+*.make
+*.qmake.stash
+
+# Папки с объектными файлами (Debug/Release)
+debug/
+release/
+debug_*
+release_*
+*.debug
+*.release
+
+# ========== Файлы IDE и редакторов ==========
+
+# Visual Studio
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+*.suo
+*.user
+*.vs/
+.vs/
+
+# CLion / CMake
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+*.cmake
+!CMakeLists.txt
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-*
+
+# ========== Системные файлы ==========
+
+# Windows
+Thumbs.db
+Desktop.ini
+*.tmp
+*.log
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+*.swp
+*.swo
+*.swn
+
+# ========== Пользовательские данные (можно исключить) ==========
+
+# JSON-файл с данными тренировок (чтобы не заливать свои данные)
+*.json
+!*.json.example   # если хочешь хранить пример структуры
+
+# Если иконка лежит в проекте, её можно оставить, но если она личная – можно исключить
+# icon.ico
+
+# ========== Дополнительно для Qt ==========
+
+# скомпилированные Qt ресурсы
+*.rcc
+*.qrc.depends
+
+# утилита lupdate для переводов
+*.ts
+*.qm
