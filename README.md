@@ -12,3 +12,7 @@
 
 ## Сборка
 Проект написан на C++ с использованием Qt 6.11.0.
+
+## Скачать готовую программу
+[Скачать последнюю версию](https://github.com/SystemCallZero/The-Grind/releases/latest)
+Или перейдите в раздел [Releases](https://github.com/SystemCallZero/The-Grind/releases) и выберите нужный архив.
